@@ -88,3 +88,19 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #777;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid rgb(128, 128, 128);
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
