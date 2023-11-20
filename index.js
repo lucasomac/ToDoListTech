@@ -72,6 +72,27 @@ function listTasks() {
 
 // Função para obter uma tarefa pelo ID
 function getTaskById(id) {
+    const taskId = parseInt(document.getElementById("taskId").value);
+
+    if (!taskId) {
+        alert("Por favor, insira um ID de tarefa válido!");
+        return;
+    }
+
+    const task = tasks.find(task => task.id === taskId);
+
+    if (task) {
+        const taskDetails = `
+                    <h2>Detalhes da Tarefa</h2>
+                    <p>ID: ${task.id}</p>
+                    <p>Título: ${task.title}</p>
+                    <p>Descrição: ${task.description}</p>
+                `;
+
+        document.getElementById("output").innerHTML = taskDetails;
+    } else {
+        document.getElementById("output").innerHTML = "<p>Tarefa não encontrada!</p>";
+    }
     return tasks.find(task => task.id === id);
 }
 
@@ -320,6 +341,19 @@ function removeTaskForm() {
                     <label for="task">Selecione a tarefa:</label>
                     <select id="task">${taskOptions}</select>
                     <input type="submit" value="Remover Tarefa">
+                </form>
+            `;
+
+    document.getElementById("output").innerHTML = form;
+}
+
+function getTaskByIdForm() {
+    const form = `
+                <h2>Obter Tarefa por ID</h2>
+                <form onsubmit="event.preventDefault(); getTaskById()">
+                    <label for="taskId">ID da Tarefa:</label>
+                    <input type="number" id="taskId" required>
+                    <input type="submit" value="Buscar Tarefa">
                 </form>
             `;
 
