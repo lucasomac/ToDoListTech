@@ -71,7 +71,7 @@ function listTasks() {
 }
 
 // Função para obter uma tarefa pelo ID
-function getTaskById(id) {
+function getTaskById() {
     const taskId = parseInt(document.getElementById("taskId").value);
 
     if (!taskId) {
